@@ -1,7 +1,7 @@
 library(mosaic)
 
 # Read in the comma seperated dataset
-CADUMS<-read.table(file = "ProjectData.txt", header = TRUE, sep = ",")
+CADUMS<-read.csv(file = "ProjectData.csv", header = TRUE, sep = ",")
 
 # Attach the data frame
 attach(CADUMS)
@@ -17,7 +17,7 @@ table(alc10)
 #       4 = More than 60 minutes
 table(smok4)
 
-# Remove unnecessary responses and clean up the data for alcahol consumers
+# Remove unnecessary responses and clean up the data for alcohol consumers
 alcCleaned <- CADUMS[which(alc10 <= 1),]
 # Remove unnecessary responses and clean up the data for smoking consumers
 smokCleaned <- CADUMS[which(smok4 <= 4),]
@@ -41,16 +41,19 @@ attach(smokCleaned)
 # Look at new cleaned distribution table
 table(smok4)
 
-# The data is now cleaned and we will do out first question
+## The data is now cleaned and we will do out first question ##
+
 # Detach the cleaned smoking data frame
 detach(smokCleaned)
+
 # Attach the cleaned alcahol consumer data frame
 attach(alcCleaned)
 
-# In our first question, we will see if there's an association between
+# In our first point, we will see if there's an association between
 # whether or not people had a drink the past week and their sex
 
 # Using these bar plots we can easily see the amount of males and females that had drinks
+
 # within the past week
 drinkM <- (alcCleaned[alcCleaned[, 2] == 1,])
 drinkF <- (alcCleaned[alcCleaned[, 2] == 2,])
@@ -72,16 +75,16 @@ barplot(table(drinkF$alc10),
 # First, we'll create a better meaningful name
 drinkAlc <- alc10
 
-# Likewise, for the sex variable, We want to attach value labels
+# Likewise, for the sex variable, we want to attach value labels
 # 1 = Male, 2 = Female
 sexAlc<-factor(sex,
-            levels = c(1,2), 
-            labels = c("Male", "Female"))
+               levels = c(1,2), 
+               labels = c("Male", "Female"))
 
 # Here is the frequency distribution of the table for sex
 addmargins(table(sexAlc))
 
-# Like before, for the alcohol variable, We want to attach value labels
+# Like before, for the alcohol variable, we want to attach value labels
 # 0 = No, 1 = Yes
 drinkAlc<-factor(drinkAlc,
                  levels = c(0,1), 
@@ -98,9 +101,7 @@ addmargins(Contingency.Table.drinkAlc)
 # To check for association, we will conduct a chi-squared test of independence 
 chisq.test(Contingency.Table.drinkAlc)
 
-# Next, we'll create a 95% CI (with continuity correction) for the difference between
-# the two proportions.
-
+# Next, we'll create a 95% CI (with continuity correction) for the difference between the two proportions.
 prop.test(c(723,1228),c(3009,3683))
 
 # This can be interpreted as we're 95% confident that the percent reported of 
@@ -126,8 +127,8 @@ smokTime <- smok4
 # Likewise, for the sex variable, We want to attach value labels
 # 1 = Male, 2 = Female
 sexSmok<-factor(sex,
-               levels = c(1,2), 
-               labels = c("Male", "Female"))
+                levels = c(1,2), 
+                labels = c("Male", "Female"))
 
 # Here is the frequency distribution of the table for sex
 addmargins(table(sexSmok))
