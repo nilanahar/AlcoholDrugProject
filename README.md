@@ -10,7 +10,7 @@ Install “Mosaic” and “MVInfluence” packages on your Rstudio to make sure
 Requires understanding of statistical data analysis, different statistical tests such as T-test, F-tests, Chi-Squared tests, and programming language R.
 
 ## Getting Started
-Save the data set ProjectData.txt in your local directory. Save all the necessary files in the same directory and run R.
+Save the data set ProjectData.csv in your local directory. Save all the necessary files in the same directory and run R.
 
 ## Tests:
 
