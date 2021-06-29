@@ -26,6 +26,3 @@ To check for a difference between the means of the two groups.
 ## Authors
 Shamsun Nila, Samiul Haque and Vihanga Ratnasinghe
 
-This project was made for STAC53H3: Applied Data Collection under the supervision of Professor Asal Aslemand in University of Toronto Scarborough, in 2019.
-
-
